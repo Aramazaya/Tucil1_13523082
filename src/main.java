@@ -116,6 +116,12 @@ public class main {
             System.out.println();
             System.out.println("Time Elapsed: " + (end-start)/1000000 + "ms");
             System.out.println("Iteration: " + iter);
+            System.out.print("Save To File(Y/N): ");
+            Scanner scanner = new Scanner(System.in);
+            String save = scanner.nextLine();
+            if (save.equals("Y")){
+                map.printResult((end-start)/1000000, iter);
+            }
         }
     }
 }

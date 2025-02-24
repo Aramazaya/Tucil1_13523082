@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -80,6 +83,27 @@ public class map {
                 }
             }
             System.out.println();
+        }
+    }
+    public void printResult(long time, int iter){
+        try {
+            PrintWriter writer = new PrintWriter(new File("test", "output.txt"));
+            writer.println("Waktu: " + time + " ms");
+            writer.println("Iterasi : " + iter);
+            for (int i = 0; i < this.grid.length; i++){
+                for (int j = 0; j < this.grid[0].length; j++){
+                    if (this.grid[i][j] == 'x'){
+                        writer.print("x");
+                    } else {
+                        String color = colorMap.getOrDefault(this.grid[i][j], RESET);
+                        writer.print(color + this.grid[i][j] + RESET);
+                    }
+                }
+                writer.println();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: Could not create file.");
+            e.printStackTrace();
         }
     }
 }
