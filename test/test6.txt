@@ -1,0 +1,8 @@
+4 4 5
+DEFAULT
+AAAA
+AA
+BB
+CC
+DDDD
+DD
